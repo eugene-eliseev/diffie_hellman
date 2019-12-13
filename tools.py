@@ -1,9 +1,15 @@
 import random
 import base64
 import hashlib
-from Cryptodome import Random
-from Cryptodome.Cipher import AES
-from Cryptodome.Util.Padding import pad, unpad
+import os
+if os.name == 'nt':
+    from Cryptodome import Random
+    from Cryptodome.Cipher import AES
+    from Cryptodome.Util.Padding import pad, unpad
+else:
+    from Crypto import Random
+    from Crypto.Cipher import AES
+    from Crypto.Util.Padding import pad, unpad
 
 
 # генератор простых чисел
